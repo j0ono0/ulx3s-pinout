@@ -12,20 +12,32 @@ text {
 .pinlabel__text{
     dominant-baseline: central;
     fill: #fff;
+    font-size: 12px;
     font-weight: bold;
     stroke-width: 0;
     text-anchor: middle;
 }
 .gpsingle .pinlabel__body {
-    fill: rgb(34 173 0);
+    fill: rgb(34, 173, 0);
 }
 
 .gpsingle .pinlabel__leader {
-    stroke: rgb(34 173 0);
+    stroke: rgb(34, 173, 0);
 }
 
 .gpsingle .swatch__body {
-    fill: rgb(34 173 0);
+    fill: rgb(34, 173, 0);
+}
+.gnsingle .pinlabel__body {
+    fill: rgb(0, 173, 158);
+}
+
+.gnsingle .pinlabel__leader {
+    stroke: rgb(0, 173, 158);
+}
+
+.gnsingle .swatch__body {
+    fill: rgb(0, 173, 158);
 }
 
 .pwr .pinlabel__body{
@@ -90,6 +102,22 @@ text {
 }
 .touch .swatch__body {
     fill: rgb(230, 87, 10);
+}
+
+
+.pinid .pinlabel__body{
+    fill: rgb(161, 163, 255);
+}
+.pinid .pinlabel__leader{
+    stroke: rgb(161, 163, 255);
+}
+.pinid .swatch__body {
+    fill: rgb(161, 163, 255);
+}
+.pinid .pinlabel__text {
+    fill : #000;
+    font-weight: normal;
+    font-size: 11px;
 }
 
 .panel__inner {

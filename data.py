@@ -1,4 +1,5 @@
 legend = [
+    ("Pin number", "pinid" ),
     ("GP single-ended", "gpsingle" ),
     ("GN single-ended", "gnsingle"),
     ("FPGA site","site"),
@@ -12,88 +13,52 @@ legend = [
 ]
 
 # Pinlabels
+gnd  = ("GND", "gnd")
+pwr  = ("+2.5/3.3V", "pwr")
 
-left_header_even = [
-    [
-        ("2", "pwr"),
-    ],
-    [
-        ("4", "gnd"),
-    ],
-    [
-        ("6", "gpio"),
-        ("GP0", "gpsingle"),
-    ],
-    [
-        ("8", "gpio"),
-        ("GP1", "gpsingle"),
-    ],
-    [
-        ("10", "gpio"),
-        ("GP2", "gpsingle"),
-    ],
-    [
-        ("12", "gpio"),
-        ("GP3", "gpsingle"),
-    ],
-]
+lhs_pairs = (
+    [[pwr]] + [[gnd]]
+    + [[(f"GP{i} | GN{i}","gpio")] for i in range(0, 7)]
+    + [[pwr]] + [[gnd]]
+    + [[(f"GP{i} | GN{i}","gpio")] for i in range(7, 14)]
+    + [[gnd]] + [[pwr]]
+    )
+
+lhs_pairs_numbered = [[(f"{i * 2 + 2} | {i * 2 + 1}","pinid", {"body":{"width":55, "height":20}})] + data for i, data in enumerate(lhs_pairs)]
+#lhs_pairs_numbered = [[(f"({i+j}) " + label[0],  label[1])] for i, row in enumerate(lhs_pairs) for j, label in enumerate(row) ]
 
 
-left_header_odd = [
-    [
-        ("1", "pwr"),
-    ],
-    [
-        ("3", "gnd"),
-    ],
-    [
-        ("5", "gpio"),
-        ("GN0", "GP-s"),
-    ],
-    [
-        ("7", "gpio"),
-        ("GN1", "GP-s"),
-    ],
-    [
-        ("9", "gpio"),
-        ("GN2", "GP-s"),
-    ],
-    [
-        ("11", "gpio"),
-        ("GN3", "GP-s"),
-        ("B11","site")
-    ],
-]
+rhs_pairs = (
+    [[pwr]] + [[gnd]]
+    + [[(f"GN{i} | GP{i}","gpio")] for i in range(14, 21)]
+    +[[pwr]] + [[gnd]]
+    + [[(f"GN{i} | GP{i}","gpio")] for i in range(21, 28)]
+    + [[gnd]] + [[pwr]]
+    )
+rhs_pairs_numbered = [[(f"{i * 2 + 1 + len(lhs_pairs_numbered)*2} | {i * 2 + 2 + len(lhs_pairs_numbered)*2}","pinid", {"body":{"width":55, "height":20}})] + data for i, data in enumerate(rhs_pairs)]
 
-lower_header = [
-    [
-        ("3", "gpio"),
-        ("PWM", "pwm"),
-    ],
-    [
-        ("4", "gpio"),
-        ("A2", "analog"),
-        ("TOUCH", "touch"),
-    ],
-    [
-        ("5", "gpio"),
-        ("A3", "analog"),
-    ],
-]
+rhs_outer = (
+    [[pwr]] + [[gnd]]
+    + [[(f"GP{i}","gpsingle")] for i in range(14, 21)]
+    +[[pwr]] + [[gnd]]
+    + [[(f"GP{i}","gpsingle")] for i in range(21, 28)]
+    + [[gnd]] + [[pwr]]
+    )
+rhs_outer_numbered = [[(f"{i * 2 + 2 + len(lhs_pairs_numbered)*2}","pinid", {"body":{"width":30, "height":20}})] + row for i, row in enumerate(rhs_outer)]
 
-right_header = [
-    [
-        ("Vcc", "pwr"),
-    ],
-    [
-        ("GND", "gnd"),
-    ],
-    [
-        ("6", "gpio"),
-        ("A4", "analog"),
-        ("TOUCH", "touch"),
-    ],
-]
+rhs_inner = (
+    [[pwr]] + [[gnd]]
+    + [[(f"GN{i}","gnsingle")] for i in range(14, 21)]
+    +[[pwr]] + [[gnd]]
+    + [[(f"GN{i}","gnsingle")] for i in range(21, 28)]
+    + [[gnd]] + [[pwr]]
+    )
+rhs_inner_numbered = [[(f"{i * 2 + 1 + len(lhs_pairs_numbered)*2}","pinid", {"body":{"width":30, "height":20}})] + row for i, row in enumerate(rhs_inner)]
+
+
+
+
+
 
 
 # Text
