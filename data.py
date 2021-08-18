@@ -73,7 +73,7 @@ lhs_inner_numbered = [
     [
         (
             f"{i * 2 + 1 }",
-            "pinid",
+            "pinid inner",
             {"body": {"width": 30, "height": 20}},
         )
     ]

@@ -7,6 +7,7 @@ text {
 .pinlabel__leader{
     stroke-width: 2;
     fill: none;
+    stroke-linecap: round;
 }
 
 .pinlabel__text{
@@ -119,6 +120,18 @@ text {
     font-weight: normal;
     font-size: 11px;
 }
+
+
+.pinid.inner .pinlabel__body{
+    fill: rgb(199, 131, 29);
+}
+.pinid.inner .pinlabel__leader{
+    stroke: rgb(199, 131, 29);
+}
+.pinid.inner .swatch__body {
+    fill: rgb(199, 131, 29);
+}
+
 
 .panel__inner {
     fill: #fff;

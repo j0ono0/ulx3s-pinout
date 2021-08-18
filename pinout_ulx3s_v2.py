@@ -60,6 +60,7 @@ graphic.add(
         label_pitch=(0, -30),
         scale=(1, 1),
         labels=data.rhs_outer_numbered,
+        leaderline=lline.Diagonal(direction="vh"),
     )
 )
 graphic.add(
@@ -72,7 +73,7 @@ graphic.add(
         label_pitch=(0, -30),
         scale=(1, 1),
         labels=data.rhs_inner_numbered,
-        leaderline=lline.Curved(direction="vh"),
+        leaderline=lline.Diagonal(direction="vh"),
     )
 )
 
@@ -87,7 +88,7 @@ graphic.add(
         label_pitch=(0, -30),
         scale=(-1, -1),
         labels=data.lhs_inner_numbered,
-        leaderline=lline.Curved(direction="vh"),
+        leaderline=lline.Diagonal(direction="vh"),
     )
 )
 graphic.add(
@@ -100,6 +101,7 @@ graphic.add(
         label_pitch=(0, 30),
         scale=(-1, 1),
         labels=data.lhs_outer_numbered,
+        leaderline=lline.Diagonal(direction="vh"),
     )
 )
 
